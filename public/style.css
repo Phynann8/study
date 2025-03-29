@@ -1,0 +1,265 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  padding-top: 80px; /* Ensures content isn’t hidden behind the fixed header */
+}
+
+/* Header & Navigation (Frozen Zone) */
+.header {
+  background: #1f1f1f;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #1abc9c;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #1abc9c, #3498db);
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 15px 30px;
+  background: #fff;
+  color: #3498db;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #f0f2f5;
+}
+
+/* Features Section (Home Page) */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.feature {
+  flex: 1 1 300px;
+  margin: 20px;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+}
+
+.feature h2 {
+  margin-bottom: 15px;
+}
+
+/* Content Sections (About & Contact) */
+.content-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Style for Topic Links */
+.topic-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.topic-link:hover {
+  color: #1abc9c;
+}
+
+/* Footer */
+.footer {
+  background: #1f1f1f;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =======================================
+   White-Themed Module Cards
+   ======================================= */
+.csharp-modules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin: 40px auto;
+}
+
+.module-card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  width: 800px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.module-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.module-meta {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.module-card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  width: 800px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+  margin: 40px auto; /* This centers the module card horizontally */
+}
+
+.module-card h4 {
+  margin: 20px 0 10px;
+  cursor: pointer; /* Indicate clickable */
+  user-select: none;
+  font-weight: bold;
+}
+
+.dropdown-arrow {
+  margin-left: 10px;
+}
+
+/* Dropdown Content: Now controlled entirely by CSS */
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.dropdown-content li {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/* Optional checkmark styling */
+.checkmark {
+  color: #1abc9c;
+  margin-left: 5px;
+}
+/* Style for navigation buttons in lesson pages */
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  width: 800px;
+}
+
+.lesson-nav .btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #3498db;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.lesson-nav .btn:hover {
+  background: #1abc9c;
+}
+/* ===========================
+   Overview Link Hover Effect
+   =========================== */
+   .dropdown-content ul li a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 4px 0;
+    color: #3498db;
+    text-decoration: none;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .dropdown-content ul li a:hover {
+    background: #3498db;
+    color: #fff;
+    transform: translateX(5px);
+  }
+  
+
