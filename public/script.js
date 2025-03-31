@@ -173,7 +173,19 @@ function updateGame() {
 
   requestAnimationFrame(updateGame);
 }
+// Dynamically resize the canvas
+function resizeCanvas() {
+  const maxWidth = 800; // Maximum width for desktop
+  const maxHeight = 600; // Maximum height for desktop
 
+  // Set canvas size based on screen size
+  canvas.width = Math.min(window.innerWidth * 0.9, maxWidth);
+  canvas.height = Math.min(window.innerHeight * 0.7, maxHeight);
+}
+
+// Call resizeCanvas on page load and window resize
+window.addEventListener('load', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
 // Start the game
 createBalloons();
 updateGame();
