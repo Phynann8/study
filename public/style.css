@@ -6,10 +6,13 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #f0f2f5;
   color: #333;
   padding-top: 80px; /* Ensures content isn’t hidden behind the fixed header */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Header & Navigation (Frozen Zone) */
@@ -260,6 +263,57 @@ body {
     background: #3498db;
     color: #fff;
     transform: translateX(5px);
+  }
+  a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s, transform 0.2s;
+  }
+  
+  a:hover {
+    color: #ff4500;
+    transform: scale(1.1);
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: #ff4500;
+    transform: scale(1.05);
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  @media (max-width: 768px) {
+    .container {
+      width: 90%;
+    }
+  
+    .card {
+      padding: 15px;
+    }
   }
   
 
