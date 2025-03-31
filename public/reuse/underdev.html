@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Under Development - Web3 IT Dev</title>
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Game-specific styles */
+    .game-container {
+      text-align: center;
+      margin: 50px auto;
+    }
+    .game-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .game-area {
+      display: inline-block;
+      width: 300px;
+      height: 300px;
+      border: 2px solid #333;
+      position: relative;
+      background-color: #f4f4f4;
+    }
+    .player {
+      width: 30px;
+      height: 30px;
+      background-color: #007bff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    .instructions {
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Header (Frozen Zone) -->
+  <header class="header frozen-zone">
+    <nav class="navbar">
+      <div class="logo">header</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Game Section -->
+  <section class="game-container">
+    <h1 class="game-title">Move the Player!</h1>
+    <div class="game-area" id="gameArea">
+      <div class="player" id="player"></div>
+    </div>
+    <p class="instructions">Use arrow keys to move the player inside the box.</p>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Web3 IT Dev. All Rights Reserved.</p>
+    <p>Follow me:  
+      <a href="https://github.com/phynann8" target="_blank">GitHub</a> | 
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    // Game logic
+    const player = document.getElementById('player');
+    const gameArea = document.getElementById('gameArea');
+    const step = 10;
+
+    document.addEventListener('keydown', (event) => {
+      const rect = player.getBoundingClientRect();
+      const areaRect = gameArea.getBoundingClientRect();
+
+      switch (event.key) {
+        case 'ArrowUp':
+          if (rect.top > areaRect.top) player.style.top = `${player.offsetTop - step}px`;
+          break;
+        case 'ArrowDown':
+          if (rect.bottom < areaRect.bottom) player.style.top = `${player.offsetTop + step}px`;
+          break;
+        case 'ArrowLeft':
+          if (rect.left > areaRect.left) player.style.left = `${player.offsetLeft - step}px`;
+          break;
+        case 'ArrowRight':
+          if (rect.right < areaRect.right) player.style.left = `${player.offsetLeft + step}px`;
+          break;
+      }
+    });
+  </script>
+</body>
+</html>
