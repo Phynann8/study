@@ -185,7 +185,7 @@ function resizeCanvas() {
 
 // Call resizeCanvas on page load and window resize
 window.addEventListener('load', resizeCanvas);
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);  
 // Start the game
 createBalloons();
 updateGame();
