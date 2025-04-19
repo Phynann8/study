@@ -189,3 +189,39 @@ window.addEventListener('resize', resizeCanvas);
 // Start the game
 createBalloons();
 updateGame();
+//Scroll‑Triggered Reveal Animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('reveal');
+      observer.unobserve(e.target);
+    }
+  });
+});
+document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+  el.classList.add('hidden');
+  observer.observe(el);
+});
+// 4) Dark‑Mode Toggle
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+});
+
+// 5) Custom Cursor Movement
+const cursor = document.getElementById('cursor-dot');
+document.addEventListener('mousemove', e => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+/* ───────────────────────────── */
+/* 6) Lottie Initialization      */
+/* ───────────────────────────── */
+lottie.loadAnimation({
+  container: document.getElementById('lottie-container'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  // Point this at your actual JSON file in public/reuse/animations/
+  path: '/reuse/animations/pulsing-circle.json'
+});

@@ -4,11 +4,50 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* 1) CSS Variables & Dark‑Mode */
+:root {
+  --bg: #f5f0f2;
+  --fg: #333;
+  --card: #fff;
+  --accent: #3498db;
+}
+[data-theme="dark"] {
+  --bg: #121212;
+  --fg: #eee;
+  --card: #1e1e1e;
+  --accent: #1abc9c;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+/* Ensure cards and buttons use variables */
+.module-card, .snippet-card, .card,.footer {
+  background: var(--card);
+}
+.btn {
+  background: var(--card);
+  color: var(--accent);
+}
+
+/* 2) Custom Cursor */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+/*reveal on scroll*/
+.hidden { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+.reveal { opacity: 1; transform: translateY(0); }
+
 
 body {
   font-family: 'Khmer OS Battambang','Poppins', sans-serif;
-  background: #f0f2f5;
-  color: #333;
   padding-top: 90px; /* Ensures content isn’t hidden behind the fixed header */
   line-height: 1.9;
 }
@@ -16,7 +55,7 @@ body {
 /* Header & Navigation (Frozen Zone) */
 .header {
   background: #1f1f1f;
-  padding: 20px;
+  padding: 22px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -51,7 +90,7 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #1abc9c;
+  color: #1aa1bc;
 }
 
 /* Hero Section */
@@ -408,4 +447,3 @@ td {
   padding: 12px;
   border: 1px solid #ddd;
 }
-

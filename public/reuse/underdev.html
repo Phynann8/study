@@ -6,9 +6,13 @@
   <title>Under Development</title>
   <!-- Import Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Prism.js CSS for syntax highlighting -->
+  <link href="https://unpkg.com/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+     <!-- Custom Cursor Dot -->
+     <div id="cursor-dot" class="cursor-dot"></div>
   <!-- Fixed Header (Frozen Zone) -->
   <header class="header frozen-zone">
     <nav class="navbar">
@@ -18,11 +22,13 @@
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
+             <!-- Theme Toggle Button -->
+       <button id="theme-toggle" class="btn">🌓</button>
     </nav>
   </header>
   
   <!-- Game Section -->
-  <section class="game-container">
+  <section class="game-container reveal-on-scroll">
     <h1 class="game-title">Shooting Arrow Game</h1>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
     <p class="instructions">Use the mouse to aim and click to shoot arrows at the balloons!</p>
@@ -38,6 +44,9 @@
       <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
     </p>
   </footer>
+  <!-- Prism.js & Lottie (if you have an animation) -->
+  <script src="https://unpkg.com/prismjs/prism.js"></script>
+  <!-- <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script> -->
   <script src="../script.js"></script>
 </body>
 </html>
