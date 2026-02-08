@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3.2: Async/Await - Khmer Code</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+                              <ul class="nav-links">
+        <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+      </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card reveal">
+            <h1>មេរៀនទី ៣.២៖ Async & Await (ចុងភៅឆ្លាតវៃ) 👨‍🍳</h1>
+            <p><strong>Asynchronous Programming</strong>
+                គឺជាជំនាញដែលអនុញ្ញាតឱ្យកម្មវិធីរបស់យើងធ្វើការងារច្រើនក្នុងពេលតែមួយដោយមិនចាំបាច់ "បង្កក" ឬ "គាំង"
+                (Non-blocking)។</p>
+            <hr>
+
+            <h3>🍳 ឧទាហរណ៍៖ ចុងភៅ និងការដាំទឹក</h3>
+            <p>បើចុងភៅឈរចាំតែទឹកពុះ (Synchronous) ទើបទៅហាន់បន្លែ នោះគាត់នឹងចំណាយពេលយូរ។ ប៉ុន្តែបើគាត់ដាក់ដាំទឹក
+                រួចទៅហាន់បន្លែបណ្តើរ (Asynchronous) គាត់នឹងរួចរាល់លឿនជាង!</p>
+
+            <div class="interactive-demo" style="background: #e1f5fe; border-left: 8px solid #0288d1;">
+                <h4>💻 កូដ Async (ការងារមិនបង្កក)</h4>
+                <pre style="background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 8px; overflow-x: auto;">
+public async Task MakeBreakfast() {
+    // ដាក់ដាំទឹក (ចាប់ផ្តើមធ្វើការងារដែលយូរ)
+    var boilingTask = BoilWaterAsync(); 
+
+    // ហាន់បន្លែ (ធ្វើការងារផ្សេងបណ្តើរ)
+    ChopVegetables();
+
+    // ចាំទាល់តែទឹកពុះទើបបន្ត
+    await boilingTask; 
+
+    Console.WriteLine("ទឹកពុះហើយ! ឆ្អិនបាត់!");
+}</pre>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3>🔍 ពាក្យគន្លឹះសំខាន់ៗ៖</h3>
+                <ul>
+                    <li><strong>async</strong>: ប្រាប់ថា Method នេះមានសមត្ថភាពធ្វើការងារ "មិនបង្កក"។</li>
+                    <li><strong>await</strong>: ប្រាប់ឱ្យកម្មវិធី "ចាំ" ទាល់តែការងារមួយរួចរាល់
+                        ប៉ុន្តែកម្មវិធីផ្សេងៗនៅដើរធម្មតា។</li>
+                    <li><strong>Task</strong>: គឺជា "កិច្ចសន្យា" ថាការងារមួយនឹងរួចរាល់នៅថ្ងៃក្រោយ។</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card reveal">
+            <h3>📝 សាកល្បងចំណេះដឹង (Quiz)</h3>
+            <p>តើពាក្យគន្លឹះមួយណាដែលយើងប្រើដើម្បី "រង់ចាំ" ការងារ Async ឱ្យចប់?</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <button onclick="checkAnswer(false)">A) wait</button>
+                <button onclick="checkAnswer(true)">B) await</button>
+                <button onclick="checkAnswer(false)">C) task</button>
+            </div>
+            <p id="feedback" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+
+        <div class="lesson-nav">
+            <button class="btn prev-btn">⬅ ត្រឡប់ក្រោយ</button>
+            <button class="btn next-btn" data-next="sql.html">មេរៀនបន្ទាប់ ➡</button>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+    <script>
+        function checkAnswer(isCorrect) {
+            const feedback = document.getElementById('feedback');
+            if (isCorrect) {
+                feedback.innerText = "✅ ត្រឹមត្រូវ! await ប្រើសម្រាប់រង់ចាំ Task ឱ្យចប់។ +50 XP";
+                feedback.style.color = "#2ecc71";
+                if (window.markLessonComplete) markLessonComplete('async');
+            } else {
+                feedback.innerText = "❌ មិនទាន់ត្រឹមត្រូវទេ! សាកល្បងម្តងទៀត។";
+                feedback.style.color = "#e74c3c";
+            }
+        }
+    </script>
+</body>
+
+</html>
+

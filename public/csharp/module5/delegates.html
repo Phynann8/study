@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ៣: Delegates (អ្នកតំណាង)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ៣: Delegates (អ្នកតំណាង)</h1>
+
+            <p><strong>Delegate</strong> គឺដូចជា "អ្នកតំណាង" ឬ "បេសកជន"។ វាគឺជា Variable ដែលអាចរក្សាទុក Function បាន។
+            </p>
+
+            <p>ជំនួសឲ្យការហៅ Function ផ្ទាល់ យើងអាចហៅវាឆ្លងកាត់ Delegate។</p>
+
+            <hr>
+
+            <h2>របៀបប្រើប្រាស់ (Syntax)</h2>
+            <pre><code>
+// 1. បង្កើត Delegate
+delegate void MyDelegate(string message);
+
+// 2. បង្កើត Function ធម្មតា
+void SayHello(string msg) 
+{
+    Console.WriteLine("Hello: " + msg);
+}
+
+// 3. ប្រើប្រាស់
+MyDelegate del = SayHello; // ដាក់ Function ចូល Delegate
+del("Sokha"); // លទ្ធផល: Hello: Sokha
+      </code></pre>
+
+            <p><strong>អត្ថប្រយោជន៍:</strong></p>
+            <ul>
+                <li>អាចប្តូរ Function ដែលត្រូវដំណើរការនៅពេល Run កម្មវិធី។</li>
+                <li>ប្រើសម្រាប់បង្កើត <strong>Events</strong> (ដូចជាពេលចុច Button)។</li>
+                <li>ជួយឲ្យកូដមានភាពបត់បែន (Flexible)។</li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #f9f9f9; padding: 20px; border-left: 5px solid #9b59b6; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>តើ Delegate រក្សាទុកអ្វី?</p>
+                <button onclick="alert('មិនត្រឹមត្រូវ! វាមិនមែនទុកទិន្នន័យធម្មតាទេ។')" style="margin-right:10px;">លេខ
+                    (int)</button>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! Delegate រក្សាទុក Function Reference។ +10 XP')">Reference
+                    ទៅកាន់ Function</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="fileio.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="lambdas.html" class="btn next-btn" onclick="markLessonComplete('delegates')">មេរៀនបន្ទាប់ (Lambda)
+                ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>

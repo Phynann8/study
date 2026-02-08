@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,10 +15,24 @@
   <header class="header frozen-zone">
     <nav class="navbar">
       <div class="logo">header</div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+            <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
       </ul>
     </nav>
   </header>

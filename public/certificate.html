@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khmer Code - Graduation Certificate</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Moul&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            font-family: 'Battambang', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .certificate-container {
+            width: 1000px;
+            height: 700px;
+            background: white;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            box-sizing: border-box;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWx5aW5nPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz48ZyBmaWxsLW9wYWNpdHk9IjAuMDUiPjxwYXRoIGQ9Ik01MCA1MGwtNTAtNTBoMTAwbC01MCA1MHptMCAwbDUwIDUwdjEwMGwtNTAgNTB6bTAgMGwtNTAgNTBoLTEwMGw1MC01MHoiLz48L2c+PC9zdmc+');
+        }
+
+        .border-gold {
+            border: 10px solid #d4af37;
+            height: 100%;
+            position: relative;
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        .border-inner {
+            border: 2px solid #d4af37;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Moul', cursive;
+            font-size: 2.5em;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5em;
+            color: #2c3e50;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .student-name {
+            font-family: 'Moul', cursive;
+            font-size: 3em;
+            color: #d4af37;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            min-width: 400px;
+            display: inline-block;
+        }
+
+        .description {
+            font-size: 1.2em;
+            color: #34495e;
+            max-width: 700px;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 40px;
+            padding: 0 50px;
+        }
+
+        .signature {
+            text-align: center;
+        }
+
+        .sign-line {
+            width: 200px;
+            border-bottom: 1px solid #333;
+            margin: 0 auto 10px auto;
+        }
+
+        .sign-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8em;
+            color: #2c3e50;
+        }
+
+        .sign-title {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .seal {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-weight: bold;
+            font-family: 'Moul', cursive;
+            font-size: 14px;
+            text-align: center;
+            transform: rotate(-15deg);
+            box-shadow: 0 0 0 4px #fff, 0 0 0 6px #d4af37;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            background: #d4af37;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Battambang', sans-serif;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @media print {
+            body {
+                background: white;
+                min-height: auto;
+            }
+
+            .certificate-container {
+                width: 100%;
+                height: 100vh;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="certificate-container">
+        <div class="border-gold">
+            <div class="border-inner">
+                <div class="logo">KHMER CODE ACADEMY</div>
+
+                <h1>Certificate of Completion</h1>
+                <div class="subtitle">This is to certify that</div>
+
+                <div class="student-name" id="studentName">-- Loading --</div>
+
+                <div class="description">
+                    Has successfully completed the <strong>Full Stack C# & Web Development Curriculum</strong>.<br>
+                    Demonstrating proficiency in C# Fundamentals, OOP, Modern .NET, and Web Deployment.
+                </div>
+
+                <div class="footer">
+                    <div class="signature">
+                        <div class="sign-line">
+                            <span class="sign-name" id="dateDisplay">Jan 30, 2026</span>
+                        </div>
+                        <div class="sign-title">DATE</div>
+                    </div>
+
+                    <div class="seal">
+                        OFFICIAL<br>KHMER<br>CODE
+                    </div>
+
+                    <div class="signature">
+                        <div class="sign-line">
+                            <span class="sign-name">Phynann</span>
+                        </div>
+                        <div class="sign-title">INSTRUCTOR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()" style="right: 250px; background: #95a5a6;">🖨️ Print PDF</button>
+    <button class="print-btn" onclick="downloadImage()">📸 Download Image</button>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get data from localStorage
+            const xp = localStorage.getItem('khmerCodeXP') || 0;
+            const badges = JSON.parse(localStorage.getItem('khmerCodeBadges') || '[]');
+
+            // Check if eligible (Graduate Badge or > 500 XP as safeguard)
+            const isGraduate = badges.includes('graduate_master') || xp > 500;
+
+            // In a real scenario, we'd enforce this. For demo, we allow preview.
+            // if (!isGraduate) {
+            //     alert("You must complete the course to view this certificate!");
+            //     window.location.href = '/';
+            //     return;
+            // }
+
+            // Get Name
+            let name = localStorage.getItem('studentName');
+            if (!name) {
+                name = prompt("Please enter your official name for the certificate:", "Student Name");
+                if (name) localStorage.setItem('studentName', name);
+            }
+
+            if (name) {
+                document.getElementById('studentName').innerText = name;
+            }
+
+            // Set Date
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('dateDisplay').innerText = date.toLocaleDateString('en-US', options);
+        });
+
+        function downloadImage() {
+            const container = document.querySelector('.certificate-container');
+            const btn = document.querySelector('.print-btn'); // Only hides one, strictly we should hide both or use CSS media query for canvas too
+
+            // Temporarily hide buttons for capture (though html2canvas target is container, buttons are outside, so it is safe)
+            // Actually buttons are outside .certificate-container, so we don't need to hide them!
+
+            html2canvas(container, { scale: 2 }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'KhmerCode_Certificate.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+
+</body>
+
+</html>

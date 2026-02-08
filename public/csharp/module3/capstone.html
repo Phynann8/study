@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 Capstone: Student System - Khmer Code</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .sms-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .student-table th,
+        .student-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .student-table th {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+                              <ul class="nav-links">
+        <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+      </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card reveal">
+            <h1>🎓 គម្រោងបញ្ចប់មេរៀន៖ ប្រព័ន្ធគ្រប់គ្រងនិស្សិត (SMS)</h1>
+            <p>ក្នុងគម្រោងនេះ យើងនឹងបញ្ចូលគ្នាទាំង <strong>LINQ, Async</strong> និង <strong>CRUD Operations</strong>
+                ដើម្បីបង្កើតកម្មវិធីមួយដែលអាចគ្រប់គ្រងបញ្ជីឈ្មោះនិស្សិតបានយ៉ាងមានប្រសិទ្ធភាព។</p>
+        </div>
+
+        <div class="sms-container reveal">
+            <div class="controls">
+                <input type="text" id="studentName" placeholder="ឈ្មោះនិស្សិត...">
+                <select id="studentMajor">
+                    <option value="IT">IT</option>
+                    <option value="Business">Business</option>
+                    <option value="English">English</option>
+                </select>
+                <button class="btn" onclick="addStudent()" style="background:var(--accent-color)">➕ បន្ថែមសិស្ស
+                    (Insert)</button>
+                <button class="btn" onclick="filterIT()" style="background:#3498db">🔍 រងតែ IT (LINQ Where)</button>
+                <button class="btn" onclick="sortByName()" style="background:#9b59b6">↕️ រៀបតាមឈ្មោះ (LINQ
+                    Sort)</button>
+            </div>
+
+            <table class="student-table" id="studentTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ឈ្មោះ</th>
+                        <th>ជំនាញ</th>
+                        <th>ស្ថានភាព</th>
+                    </tr>
+                </thead>
+                <tbody id="studentBody">
+                    <!-- Data will be injected here -->
+                </tbody>
+            </table>
+
+            <p id="loading-text" style="display:none; text-align:center; color:#3498db; margin-top:10px;">⏳
+                កំពុងទាញទិន្នន័យ (Simulating Async)...</p>
+        </div>
+
+        <div class="card reveal" style="margin-top: 30px;">
+            <h3>🏆 បញ្ចប់ Module 3</h3>
+            <p>សូមចុច "បញ្ចប់គម្រោង" ដើម្បីទទួលបាន Badge ថ្មី និង XP បន្ថែម!</p>
+            <button class="btn done-btn" onclick="completeModule()" style="width:100%; font-size:1.2em;">🎉 បញ្ចប់គម្រោង
+                (Finish Module)</button>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+    <script>
+        let students = [
+            { id: 1, name: "សុខា", major: "IT", status: "Active" },
+            { id: 2, name: "បូផា", major: "Business", status: "Active" }
+        ];
+
+        function renderStudents(list) {
+            const body = document.getElementById('studentBody');
+            body.innerHTML = '';
+            list.forEach(s => {
+                body.innerHTML += `
+                    <tr>
+                        <td>${s.id}</td>
+                        <td>${s.name}</td>
+                        <td>${s.major}</td>
+                        <td><span class="status-pill active">${s.status}</span></td>
+                    </tr>
+                `;
+            });
+        }
+
+        async function addStudent() {
+            const name = document.getElementById('studentName').value;
+            const major = document.getElementById('studentMajor').value;
+            if (!name) return;
+
+            // Simulating Async Database Save
+            document.getElementById('loading-text').style.display = 'block';
+            await new Promise(r => setTimeout(r, 1000));
+            document.getElementById('loading-text').style.display = 'none';
+
+            students.push({ id: students.length + 1, name, major, status: "Active" });
+            renderStudents(students);
+            document.getElementById('studentName').value = '';
+        }
+
+        function filterIT() {
+            // Emulating LINQ .Where(s => s.major == "IT")
+            const itStudents = students.filter(s => s.major === "IT");
+            renderStudents(itStudents);
+        }
+
+        function sortByName() {
+            // Emulating LINQ .OrderBy(s => s.name)
+            const sorted = [...students].sort((a, b) => a.name.localeCompare(b.name));
+            renderStudents(sorted);
+        }
+
+        function completeModule() {
+            if (window.markLessonComplete) markLessonComplete('module3_capstone');
+            setTimeout(() => {
+                location.href = "../../csharp-lesson.html";
+            }, 1000);
+        }
+
+        // Initial render
+        renderStudents(students);
+    </script>
+</body>
+
+</html>
+

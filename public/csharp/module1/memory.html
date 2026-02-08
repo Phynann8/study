@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ៤: ការគ្រប់គ្រងអង្គចងចាំ (Memory Management)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li id="auth-nav-container"></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ៤: អង្គចងចាំ - តុធ្វើការរបស់អ្នក</h1>
+
+            <p>សូមស្រមៃថាអ្នកមាន <strong>"តុធ្វើការ"</strong> មួយ។ កាលណាអ្នកយករបស់មកដាក់កាន់តែច្រើន
+                តុរបស់អ្នកនឹងកាន់តែពេញ ហើយអ្នកពិបាកធ្វើការ។</p>
+
+            <p>នៅក្នុងកុំព្យូទ័រ <strong>RAM (Memory)</strong> គឺដូចជាតុធ្វើការអ៊ីចឹង។ កាលណាយើងបង្កើតអថេរ (Variables)
+                ច្រើនពេក វានឹងស៊ីកន្លែងតុរបស់យើង។</p>
+
+            <hr>
+
+            <h2>Stack និង Heap (កន្លែងទុករបស់)</h2>
+            <p>ក្នុង C# មានកន្លែងទុកទិន្នន័យសំខាន់ ២៖</p>
+            <ul>
+                <li><strong>Stack:</strong> ដូចជាកន្លែងដាក់សៀវភៅតម្រួតលើគ្នា (លឿនបំផុត តែទុកបានរបស់តូចៗដូចជាលេខ)។</li>
+                <li><strong>Heap:</strong> ដូចជាបន្ទប់ឃ្លាំង (ទុករបស់ធំៗ តែត្រូវចំណាយពេលដើរទៅយកបន្តិច)។</li>
+            </ul>
+
+            <h2>Garbage Collection (អ្នកបោសសម្អាត)</h2>
+            <p>សំណាងល្អ C# មាន <strong>Garbage Collector (GC)</strong>។ វាដូចជាអ្នកបម្រើម្នាក់ដែលចាំមើលថា
+                បើរបស់ណាដែលអ្នកលែងប្រើនៅលើតុ គាត់នឹងយកវាទៅទុក ឬបោះចោល ដើម្បីឱ្យតុរបស់អ្នកទំនេរវិញ។</p>
+
+            <div class="interactive-demo"
+                style="background: #e1f5fe; padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 5px solid #03a9f4;">
+                <h3>តើអ្នកដឹងទេ?</h3>
+                <p>តើអ្វីទៅជាអ្នកបោសសម្អាតអង្គចងចាំក្នុង C#?</p>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! Garbage Collector ជួយសម្អាតអង្គចងចាំដែលលែងប្រើ។ +10 XP')"
+                    style="margin-right:10px;">Garbage Collector</button>
+                <button onclick="alert('ខុសហើយ! Stack គឺជាកន្លែងទុកទិន្នន័យ មិនមែនអ្នកសម្អាតទេ។')">Stack</button>
+            </div>
+
+        </div>
+
+        <!-- Authentication Modal -->
+        <div id="auth-modal"
+            style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+            <h3 id="modal-title" style="margin-top:0;">Login</h3>
+            <div style="margin-bottom:15px;">
+                <label style="display:block; margin-bottom:5px;">Email</label>
+                <input type="email" id="auth-email"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="margin-bottom:20px;">
+                <label style="display:block; margin-bottom:5px;">Password</label>
+                <input type="password" id="auth-password"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+                    style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+                <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+                    style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+            </div>
+            <button onclick="document.getElementById('auth-modal').style.display='none'"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-container"></div>
+
+        <!-- Navigation (Hidden initially) -->
+        <div class="lesson-nav" style="display:none;">
+            <a href="logic.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="../../csharp-lesson.html" class="btn next-btn done-btn">បញ្ចប់មេរៀនទី ១</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-client.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../script.js"></script>
+    <script src="../../js/quiz.js"></script>
+    <script>
+        const quizConfig = {
+            lessonId: 'memory',
+            nextLessonUrl: '../../csharp-lesson.html', // End of Module 1
+            questions: [
+                {
+                    question: "តើអង្គចងចាំមួយណាមានល្បឿនលឿន និងសម្រាប់ទុកទិន្នន័យតូចៗ?",
+                    options: ["Heap", "Stack", "Hard Disk", "Cloud"],
+                    correct: 1
+                },
+                {
+                    question: "តើមុខងាររបស់ Garbage Collector (GC) គឺជាអ្វី?",
+                    options: ["បង្កើតមេរោគ", "បង្កើនល្បឿនអ៊ីនធឺណិត", "សម្អាត RAM ដែលលែងប្រើ", "លុបឯកសារទាំងអស់"],
+                    correct: 2
+                },
+                {
+                    question: "ប្រសិនបើយើងបង្កើត Object ធំៗ តើវានឹងត្រូវទុកនៅឯណា?",
+                    options: ["Stack", "Heap", "CPU", "Keyboard"],
+                    correct: 1
+                }
+            ]
+        };
+        document.addEventListener('DOMContentLoaded', () => new QuizEngine(quizConfig));
+    </script>
+</body>
+
+</html>

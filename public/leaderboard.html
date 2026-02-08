@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Khmer Code</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .leaderboard-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .leaderboard-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .rank {
+            font-weight: bold;
+            color: #1abc9c;
+            width: 50px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eee;
+        }
+
+        .xp-badge {
+            background: #f1c40f;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+
+        .top-3 {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .podium {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            transform: translateY(0);
+            transition: transform 0.3s;
+        }
+
+        .podium:hover {
+            transform: translateY(-10px);
+        }
+
+        .podium.silver {
+            margin-top: 30px;
+        }
+
+        .podium.gold {
+            border: 3px solid #f1c40f;
+        }
+
+        .podium.bronze {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li id="auth-nav-container"></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="leaderboard-container reveal">
+        <h1 style="text-align: center; color: #2c3e50;">🏆 សាលកេរ្តិ៍ឈ្មោះ (Hall of Fame)</h1>
+
+        <div class="top-3">
+            <div class="podium silver">
+                <div style="font-size: 2em;">🥈</div>
+                <h3>Sokha IT</h3>
+                <p>2,450 XP</p>
+            </div>
+            <div class="podium gold">
+                <div style="font-size: 3em;">🥇</div>
+                <h3>Vannak Dev</h3>
+                <p>3,100 XP</p>
+            </div>
+            <div class="podium bronze">
+                <div style="font-size: 2em;">🥉</div>
+                <h3>Dara Code</h3>
+                <p>1,900 XP</p>
+            </div>
+        </div>
+
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>លេខរៀង</th>
+                    <th>អ្នកប្រើប្រាស់</th>
+                    <th>មេដាយ</th>
+                    <th>XP សរុប</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank">4</td>
+                    <td class="user-info">
+                        <div class="user-avatar" style="background: #3498db;"></div>
+                        <span>Leap S.</span>
+                    </td>
+                    <td>🛠️ Modern Architect</td>
+                    <td>1,450</td>
+                </tr>
+                <tr>
+                    <td class="rank">5</td>
+                    <td class="user-info">
+                        <div class="user-avatar" style="background: #e74c3c;"></div>
+                        <span>Chanmony</span>
+                    </td>
+                    <td>🍛 Iron Rice Bowl</td>
+                    <td>1,120</td>
+                </tr>
+                <tr>
+                    <td class="rank">6</td>
+                    <td class="user-info">
+                        <div class="user-avatar" style="background: #9b59b6;"></div>
+                        <span>Sophea</span>
+                    </td>
+                    <td>🚀 The Deployer</td>
+                    <td>980</td>
+                </tr>
+                <tr style="background: #f1fcf9; border-left: 4px solid #1abc9c;">
+                    <td class="rank" id="user-rank">?</td>
+                    <td class="user-info">
+                        <div class="user-avatar" style="background: #1abc9c;"></div>
+                        <span>You (អ្នក)</span>
+                    </td>
+                    <td id="user-badge">-</td>
+                    <td id="user-xp">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal"
+        style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+        <h3 id="modal-title" style="margin-top:0;">Login</h3>
+        <div style="margin-bottom:15px;">
+            <label style="display:block; margin-bottom:5px;">Email</label>
+            <input type="email" id="auth-email"
+                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label style="display:block; margin-bottom:5px;">Password</label>
+            <input type="password" id="auth-password"
+                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+                style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+            <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+                style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+        </div>
+        <button onclick="document.getElementById('auth-modal').style.display='none'"
+            style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const xp = localStorage.getItem('khmer_code_xp') || '0';
+            document.getElementById('user-xp').innerText = xp;
+
+            // Basic badge detection
+            if (localStorage.getItem('badge_graduate')) document.getElementById('user-badge').innerText = '🎓 Graduate';
+            else if (localStorage.getItem('badge_module4')) document.getElementById('user-badge').innerText = '🚀 Deployer';
+            else if (localStorage.getItem('badge_module3')) document.getElementById('user-badge').innerText = '🏛️ Architect';
+            else if (localStorage.getItem('badge_module1')) document.getElementById('user-badge').innerText = '🍛 Iron Rice Bowl';
+        });
+    </script>
+</body>
+
+</html>

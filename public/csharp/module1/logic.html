@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ៣: តក្កវិជ្ជា (Logic & Conditions)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li id="auth-nav-container"></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ៣: តក្កវិជ្ជា (Logic) - ការតថ្លៃនៅផ្សារ</h1>
+
+            <p>នៅពេលអ្នកទៅផ្សារ អ្នកតែងតែមានការសម្រេចចិត្ត៖ <strong>"ប្រសិនបើ (If) តម្លៃថោក ខ្ញុំនឹងទិញ ប៉ុន្តែប្រសិនបើ
+                    (Else) ថ្លៃពេក ខ្ញុំនឹងមិនទិញទេ"</strong>។</p>
+
+            <p>នៅក្នុងកូដ យើងប្រើ <code>if</code> និង <code>else</code>
+                ដើម្បីឱ្យកម្មវិធីចេះសម្រេចចិត្តតាមលក្ខខណ្ឌដែលយើងកំណត់។</p>
+
+            <hr>
+
+            <h2>របៀបប្រើ If...Else (Syntax)</h2>
+            <pre><code>
+int price = 5000;
+
+if (price <= 4000) 
+{
+    Console.WriteLine("ទិញត្រីនេះ!");
+}
+else 
+{
+    Console.WriteLine("ថ្លៃពេកហើយ សុំចុះថ្លៃបន្តិចបានទេ?");
+}
+            </code></pre>
+
+            <p><strong>ការពន្យល់:</strong></p>
+            <ul>
+                <li><code>price <= 4000</code>: គឺជាលក្ខខណ្ឌ (ដូចជាការកំណត់តម្លៃក្នុងចិត្តរបស់អ្នក)។</li>
+                <li><code>if</code>: ប្រសិនបើលក្ខខណ្ឌខាងលើ <strong>ពិត (True)</strong> វានឹងធ្វើការងារក្នុងចន្លោះ
+                    <code>{ }</code> ដំបូង។
+                </li>
+                <li><code>else</code>: ប្រសិនបើលក្ខខណ្ឌខាងលើ <strong>មិនពិត (False)</strong> វានឹងធ្វើការងារក្នុងចន្លោះ
+                    <code>{ }</code> បន្ទាប់។
+                </li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #fff4e5; padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 5px solid #ff9800;">
+                <h3>សាកល្បងតថ្លៃ!</h3>
+                <p>តើនឹងមានអ្វីកើតឡើង បើអ្នកមានលុយ <strong>3000៛</strong> ហើយត្រីតម្លៃ <strong>2000៛</strong>?</p>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! ព្រោះ 2000 តិចជាង 3000 ដូច្នេះអ្នកអាចទិញបាន។ +10 XP')"
+                    style="margin-right:10px;">ទិញ</button>
+                <button onclick="alert('ខុសហើយ! អ្នកមានលុយគ្រប់គ្រាន់ដើម្បីទិញ។')">មិនទិញ</button>
+            </div>
+
+        </div>
+
+        <!-- Authentication Modal -->
+        <div id="auth-modal"
+            style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+            <h3 id="modal-title" style="margin-top:0;">Login</h3>
+            <div style="margin-bottom:15px;">
+                <label style="display:block; margin-bottom:5px;">Email</label>
+                <input type="email" id="auth-email"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="margin-bottom:20px;">
+                <label style="display:block; margin-bottom:5px;">Password</label>
+                <input type="password" id="auth-password"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+                    style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+                <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+                    style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+            </div>
+            <button onclick="document.getElementById('auth-modal').style.display='none'"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-container"></div>
+
+        <!-- Navigation (Hidden initially) -->
+        <div class="lesson-nav" style="display:none;">
+            <a href="loops.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-client.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../script.js"></script>
+    <script src="../../js/quiz.js"></script>
+    <script>
+        const quizConfig = {
+            lessonId: 'logic',
+            nextLessonUrl: 'memory.html',
+            questions: [
+                {
+                    question: "តើ Keywords មួយណាមានន័យថា 'បើមិនដូច្នោះទេ' (Otherwise)?",
+                    options: ["if", "else", "then", "otherwise"],
+                    correct: 1
+                },
+                {
+                    question: "ប្រសិនបើ `int x = 10` តើលក្ខខណ្ឌ `x > 5` គឺជាអ្វី?",
+                    options: ["ពិត (True)", "មិនពិត (False)", "Error", "មិនមានចម្លើយ"],
+                    correct: 0
+                },
+                {
+                    question: "តើនិមិត្តសញ្ញាសម្រាប់ 'ស្មើគ្នា' ក្នុងលក្ខខណ្ឌគឺអ្វី?",
+                    options: ["=", "==", "===", "equals"],
+                    correct: 1
+                }
+            ]
+        };
+        document.addEventListener('DOMContentLoaded', () => new QuizEngine(quizConfig));
+    </script>
+</body>
+
+</html>

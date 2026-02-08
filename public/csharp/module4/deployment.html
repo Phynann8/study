@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4.3: Deployment - Khmer Code</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+                              <ul class="nav-links">
+        <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+      </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card reveal">
+            <h1>មេរៀនទី ៤.៣៖ Deployment (ការបើកហាង) 🚀</h1>
+            <p><strong>Deployment</strong> គឺជាការយកកូដពីក្នុងម៉ាស៊ីនរបស់យើង (Localhost) ទៅដាក់នៅលើអ៊ីនធឺណិត (Server)
+                ដើម្បីឱ្យមនុស្សទូទាំងពិភពលោកប្រើប្រាស់បាន។</p>
+            <hr>
+
+            <h3>🏗️ ឧទាហរណ៍៖ ពីផ្ទះបាយទៅហាងពិត</h3>
+            <p>នៅពេលអ្នករៀនធ្វើម្ហូប អ្នកធ្វើនៅផ្ទះខ្លួនឯង (Localhost) ញ៉ាំតែម្នាក់ឯង។ ប៉ុន្តែពេលអ្នកចង់លក់
+                អ្នកត្រូវជួលទីតាំង (Server) និងរៀបចំតុ (IIS/Docker) ដើម្បីទទួលភ្ញៀវ។</p>
+
+            <div class="visual-analogy"
+                style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+                <div
+                    style="background:#e8f8f5; padding:20px; border-radius:15px; width:220px; text-align:center; border:2px solid #1abc9c;">
+                    <h4>🏠 Localhost</h4>
+                    <p>កុំព្យូទ័រផ្ទាល់ខ្លួន</p>
+                    <small>មានតែយើងទេដែលឃើញ</small>
+                </div>
+                <div style="font-size:2em; align-self:center;">➡️</div>
+                <div
+                    style="background:#e8f4fc; padding:20px; border-radius:15px; width:220px; text-align:center; border:2px solid #3498db;">
+                    <h4>☁️ Server (IIS/Linux)</h4>
+                    <p>កុំព្យូទ័រដែលបើក ២៤ម៉ោង</p>
+                    <small>មនុស្សគ្រប់គ្នាអាចចូលបាន</small>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3>🛠️ ឧបករណ៍សំខាន់ៗ៖</h3>
+                <ul>
+                    <li><strong>IIS (Internet Information Services)</strong>: ជាអ្នកគ្រប់គ្រងហាងនៅលើ Windows Server។
+                    </li>
+                    <li><strong>Docker</strong> 🐳: ជា "ប្រអប់អាហារ" ដែលវេចខ្ចប់កូដរបស់យើងឱ្យយកទៅដាក់នៅទីណាក៏បាន។</li>
+                    <li><strong>Domain Name</strong> (eg. khmercode.com): គឺជា "អាសយដ្ឋានហាង" ដើម្បីឱ្យភ្ញៀវរកឃើញ។</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card reveal">
+            <h3>📝 សាកល្បងចំណេះដឹង (Quiz)</h3>
+            <p>តើកម្មវិធីអ្វីដែលគេនិយមប្រើសម្រាប់ "វេចខ្ចប់" (Containerize) កម្មវិធីឱ្យងាយស្រួលចល័ត?</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <button onclick="checkAnswer(false)">A) IIS</button>
+                <button onclick="checkAnswer(true)">B) Docker</button>
+                <button onclick="checkAnswer(false)">C) SQL Server</button>
+            </div>
+            <p id="feedback" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+
+        <div class="lesson-nav">
+            <button class="btn prev-btn">⬅ ត្រឡប់ក្រោយ</button>
+            <button class="btn next-btn" data-next="capstone.html">មេរៀនបន្ទាប់ ➡</button>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+    <script>
+        function checkAnswer(isCorrect) {
+            const feedback = document.getElementById('feedback');
+            if (isCorrect) {
+                feedback.innerText = "✅ ត្រឹមត្រូវ! Docker គឺជាបច្ចេកវិទ្យា Container ដែលពេញនិយម។ +50 XP";
+                feedback.style.color = "#2ecc71";
+                if (window.markLessonComplete) markLessonComplete('deployment');
+            } else {
+                feedback.innerText = "❌ មិនទាន់ត្រឹមត្រូវទេ! សាកល្បងម្តងទៀត។";
+                feedback.style.color = "#e74c3c";
+            }
+        }
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ២.១: Classes & Objects (ប្លង់មេ)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+                              <ul class="nav-links">
+        <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+      </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ២.១: Classes & Objects - ប្លង់មេនៃហាង</h1>
+
+            <p>នៅក្នុងមេរៀនមុន យើងបានរៀនអំពី "ប្រអប់" (Variables) ។ ឥឡូវនេះ ស្រមៃថាអ្នកចង់បើកហាងលក់អីវ៉ាន់។</p>
+
+            <p>តើអ្នកគួរធ្វើដូចម្តេចដើម្បីគ្រប់គ្រងអីវ៉ាន់រាប់ពាន់មុខ? អ្នកត្រូវការ <strong>"ប្លង់មេ
+                    (Blueprint)"</strong> ។</p>
+
+            <hr>
+
+            <h2>១. Class គឺជាអ្វី? (ប្លង់មេ)</h2>
+            <p><strong>Class</strong> គឺដូចជាប្លង់មេនៃផ្ទះ ឬរូបមន្តធ្វើម្ហូប។ វាមិនមែនជាផ្ទះពិតប្រាកដទេ
+                ប៉ុន្តែវាប្រាប់យើងថាផ្ទះនោះមានអ្វីខ្លះ (បង្អួចប៉ុន្មាន ទ្វារប៉ុន្មាន)។</p>
+
+            <pre><code>
+class Item 
+{
+    public string Name;
+    public int Price;
+}
+            </code></pre>
+
+            <hr>
+
+            <h2>២. Object គឺជាអ្វី? (របស់ពិត)</h2>
+            <p><strong>Object</strong> គឺជាអ្វីដែលយើងបង្កើតចេញពី Class។ បើ Class ជាប្លង់ផ្ទះ Object គឺជា
+                <strong>"ផ្ទះពិតប្រាកដ"</strong> ដែលយើងអាចរស់នៅបាន។
+            </p>
+
+            <pre><code>
+Item coca = new Item();
+coca.Name = "Coca Cola";
+coca.Price = 2500;
+            </code></pre>
+
+            <div class="interactive-demo"
+                style="background: #fdfaf0; padding: 20px; border-left: 5px solid #f1c40f; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>បើ "រូបមន្តស្លកកូរ" ជា <strong>Class</strong> តើ "ឆ្នាំងស្លកកូរនៅលើតុ" ជាអ្វី?</p>
+                <button onclick="alert('មិនទាន់ត្រឹមត្រូវទេ! Class គ្រាន់តែជាក្រដាសប្រាប់វិធីធ្វើប៉ុណ្ណោះ។')"
+                    style="margin-right:10px;">Class</button>
+                <button
+                    onclick="addXP(20); alert('ត្រឹមត្រូវណាស់! របស់ពិតដែលយើងញ៉ាំបានគឺ Object។ +20 XP')">Object</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="../../csharp-lesson.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="#" class="btn next-btn"
+                onclick="alert('មេរៀនបន្ទាប់ (Inheritance) នឹងមកដល់ឆាប់ៗនេះ!'); markLessonComplete('classes')">មេរៀនបន្ទាប់
+                (Inheritance) ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ១: អថេរ (Variables)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li id="auth-nav-container"></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ១: អថេរ (Variables) - ប្រអប់ដាក់អីវ៉ាន់</h1>
+
+            <p>ស្រមៃថាអ្នកកំពុងរៀបចំផ្ទះ។ អ្នកត្រូវការ <strong>"ប្រអប់"</strong> ដើម្បីដាក់របស់របរ។</p>
+
+            <ul>
+                <li>ប្រអប់ដាក់តុក្កតា</li>
+                <li>ប្រអប់ដាក់សៀវភៅ</li>
+                <li>ប្រអប់ដាក់ស្បែកជើង</li>
+            </ul>
+
+            <p>នៅក្នុងការសរសេរកូដ <strong>Variables (អថេរ)</strong> គឺដូចជា <strong>"ប្រអប់"</strong>
+                សម្រាប់រក្សាទុកទិន្នន័យ។</p>
+
+            <hr>
+
+            <h2>របៀបបង្កើត "ប្រអប់" (Syntax)</h2>
+            <pre><code>
+int age = 20;
+string name = "Sokha";
+      </code></pre>
+
+            <p><strong>ការពន្យល់:</strong></p>
+            <ul>
+                <li><code>int</code> (Integer): គឺជាប្រអប់សម្រាប់ដាក់ <strong>លេខ</strong> (ដូចជាអាយុ)។</li>
+                <li><code>string</code>: គឺជាប្រអប់សម្រាប់ដាក់ <strong>អក្សរ</strong> (ដូចជាឈ្មោះ)។</li>
+                <li><code>=</code>: គឺជារបៀបដែលយើងដាក់របស់ចូលក្នុងប្រអប់។</li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #f9f9f9; padding: 20px; border-left: 5px solid #1abc9c; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>បើយើងចង់ទុកតម្លៃ <strong>1000 រៀល</strong> តើយើងគួរប្រើប្រអប់ប្រភេទអ្វី?</p>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! យើងប្រើ int (លេខ)។ +10 XP')"
+                    style="margin-right:10px;">int</button>
+                <button onclick="alert('មិនត្រឹមត្រូវទេ! string សម្រាប់តែអក្សរប៉ុណ្ណោះ។')">string</button>
+            </div>
+
+        </div>
+
+        <!-- Authentication Modal -->
+        <div id="auth-modal"
+            style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+            <h3 id="modal-title" style="margin-top:0;">Login</h3>
+            <div style="margin-bottom:15px;">
+                <label style="display:block; margin-bottom:5px;">Email</label>
+                <input type="email" id="auth-email"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="margin-bottom:20px;">
+                <label style="display:block; margin-bottom:5px;">Password</label>
+                <input type="password" id="auth-password"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+                    style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+                <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+                    style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+            </div>
+            <button onclick="document.getElementById('auth-modal').style.display='none'"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-container"></div>
+
+        <!-- Navigation (Hidden initially) -->
+        <div class="lesson-nav" style="display:none;">
+            <a href="../../csharp-lesson.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-client.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../script.js"></script>
+    <script src="../../js/quiz.js"></script>
+    <script>
+        const quizConfig = {
+            lessonId: 'variables',
+            nextLessonUrl: 'loops.html',
+            questions: [
+                {
+                    question: "តើ Keywords មួយណាប្រើសម្រាប់បង្កើតអថេរដែលមិនអាចកែប្រែបាន (Constant)?",
+                    options: ["var", "const", "int", "immutable"],
+                    correct: 1
+                },
+                {
+                    question: "តើអថេរប្រភេទ `int` ទុកទិន្នន័យអ្វី?",
+                    options: ["អក្សរ (Text)", "ចំនួនគត់ (Whole Number)", "ចំនួនទសភាគ (Decimal)", "មិនមានទិន្នន័យ"],
+                    correct: 1
+                },
+                {
+                    question: "តើការសរសេរឈ្មោះអថេរ `myFirstName` ជាទម្រង់អ្វី?",
+                    options: ["PascalCase", "snake_case", "camelCase", "kebab-case"],
+                    correct: 2
+                }
+            ]
+        };
+        // Use a slight delay to ensure fonts/scripts are ready
+        document.addEventListener('DOMContentLoaded', () => new QuizEngine(quizConfig));
+    </script>
+</body>
+
+</html>

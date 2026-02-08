@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,19 +11,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
   <!-- Fixed Header (Frozen Zone) -->
   <header class="header frozen-zone">
     <nav class="navbar">
-      <div class="logo">Header</div>
+      <div class="logo">Khmer Code</div>
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li id="auth-nav-container"></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
       </ul>
     </nav>
   </header>
-  
+
   <!-- Hero Section -->
   <section id="hero" class="hero">
     <div class="hero-content">
@@ -30,69 +47,151 @@
       <p>C# (C-Sharp) is a programming language developed by Microsoft that runs on the .NET Framework.</p>
     </div>
   </section>
-  
+
   <!-- Content Section -->
   <section class="content-section">
     <p>This page is dedicated to C# lessons. Below are some example modules you might include in a learning path:</p>
-  
+
     <section class="csharp-modules">
-      <!-- Module 1 -->
-      <div class="module-card">
-        <h3>Write your first C# method</h3>
-        <div class="module-meta">9 Units</div>
-        <p>Learn to create your own methods to perform specific tasks.</p>
-        
+      <!-- Module 1: CS Fundamentals (Khmer) -->
+      <div class="module-card reveal">
+        <h3>Module 1: CS Fundamentals (មូលដ្ឋានគ្រឹះ)</h3>
+        <div class="module-meta">4 Units • Khmer Localized</div>
+        <p>សិក្សាអំពីមូលដ្ឋានគ្រឹះនៃការសរសេរកូដដោយប្រើឧទាហរណ៍ជាក់ស្តែង។</p>
+
         <!-- Clickable Dropdown Header for Overview -->
         <h4 class="dropdown-header" onclick="toggleDropdown(this)">
           Overview <span class="dropdown-arrow">&#9660;</span>
         </h4>
-        
+
         <!-- Dropdown Content: Controlled by CSS -->
         <div class="dropdown-content" style="display: none;">
-            <ul>
-              <li><a href="csharp/introduction.html">Introduction</a></li>
-              <li><a href="csharp/syntax.html">Understand the syntax of methods</a></li>
-              <li><a href="csharp/create-method.html">Exercise - Create your first method</a></li>
-              <li><a href="csharp/build-method.html">Exercise - Build code with methods</a></li>
-              <li><a href="csharp/challenge.html">Exercise - Complete the challenge to create a reusable method</a></li>
-              <li><a href="csharp/knowledge-check.html">Knowledge check</a></li>
-              <li><a href="csharp/summary.html">Summary</a></li>
-            </ul>
-          </div>          
-      </div>    
-      <section class="csharp-modules">
-        <!-- Module 2 -->
-        <div class="module-card">
-          <h3>Write your first C# method</h3>
-          <div class="module-meta">9 Units</div>
-          <p>Learn to create your own methods to perform specific tasks.</p>
-          
-          <!-- Clickable Dropdown Header for Overview -->
-          <h4 class="dropdown-header" onclick="toggleDropdown(this)">
-            Overview <span class="dropdown-arrow">&#9660;</span>
-          </h4>
-          
-          <!-- Dropdown Content: Controlled by CSS -->
-          <div class="dropdown-content" style="display: none;">
-            <ul>
-              <li><a href="csharp/introduction.html">Introduction</a></li>
-              <li><a href="csharp/syntax.html">Understand the syntax of methods</a></li>
-              <li><a href="csharp/create-method.html">Exercise - Create your first method</a></li>
-              <li><a href="csharp/build-method.html">Exercise - Build code with methods</a></li>
-              <li><a href="csharp/challenge.html">Exercise - Complete the challenge to create a reusable method</a></li>
-              <li><a href="csharp/knowledge-check.html">Knowledge check</a></li>
-              <li><a href="csharp/summary.html">Summary</a></li>
-            </ul>
-          </div>          
-        </div>    
+          <ul>
+            <li><a href="csharp/module1/variables.html">មេរៀនទី ១: អថេរ (Variables)</a></li>
+            <li><a href="csharp/module1/loops.html">មេរៀនទី ២: Loops (ការធ្វើឡើងវិញ)</a></li>
+            <li><a href="csharp/module1/logic.html">មេរៀនទី ៣: តក្កវិជ្ជា (Logic)</a></li>
+            <li><a href="csharp/module1/memory.html">មេរៀនទី ៤: អង្គចងចាំ (Memory Management)</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Module 2: Object-Oriented Programming (Khmer) -->
+      <div class="module-card reveal">
+        <h3>Module 2: OOP (ការរៀបចំប្រព័ន្ធ)</h3>
+        <div class="module-meta">3 Units • Khmer Localized</div>
+        <p>រៀនអំពីការរៀបចំកូដឱ្យមានរបៀបរៀបរយដូចការគ្រប់គ្រងហាងពិតប្រាកដ។</p>
+
+        <h4 class="dropdown-header" onclick="toggleDropdown(this)">
+          Overview <span class="dropdown-arrow">&#9660;</span>
+        </h4>
+
+        <div class="dropdown-content" style="display: none;">
+          <ul>
+            <li><a href="csharp/module2/classes.html">២.១ Classes & Objects (ប្លង់មេ)</a></li>
+            <li><a href="csharp/module2/inheritance.html">២.២ Inheritance (មរតកបន្តវេន)</a></li>
+            <li><a href="csharp/module2/polymorphism.html">២.៣ Polymorphism (ភាពច្រើនបែប)</a></li>
+            <li><a href="csharp/module2/capstone.html" style="font-weight:bold; color:#1abc9c;">២.៤ គម្រោង៖
+                ប្រព័ន្ធគ្រប់គ្រងហាង (POS)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module 3: Modern C# & .NET (Khmer) -->
+      <div class="module-card reveal">
+        <h3>Module 3: Modern C# & .NET (បច្ចេកវិទ្យាទំនើប)</h3>
+        <div class="module-meta">4 Units • Khmer Localized</div>
+        <p>សិក្សាអំពីការប្រើប្រាស់ LINQ, Async/Await និងការគ្រប់គ្រងទិន្នន័យ។</p>
+
+        <h4 class="dropdown-header" onclick="toggleDropdown(this)">
+          Overview <span class="dropdown-arrow">&#9660;</span>
+        </h4>
+
+        <div class="dropdown-content" style="display: none;">
+          <ul>
+            <li><a href="csharp/module3/linq.html">៣.១ LINQ (ការចម្រាញ់ទិន្នន័យ)</a></li>
+            <li><a href="csharp/module3/async.html">៣.២ Async/Await (ការងារច្រើនក្នុងពេលតែមួយ)</a></li>
+            <li><a href="csharp/module3/sql.html">៣.៣ SQL & Data (ការរក្សាទុកទិន្នន័យ)</a></li>
+            <li><a href="csharp/module3/capstone.html" style="font-weight:bold; color:#1abc9c;">៣.៤ គម្រោង៖
+                ប្រព័ន្ធគ្រប់គ្រងនិស្សិត</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module 4: Web & Deployment (Khmer) -->
+      <div class="module-card reveal">
+        <h3>Module 4: Web & Deployment (ការបង្កើត Web)</h3>
+        <div class="module-meta">4 Units • Khmer Localized</div>
+        <p>រៀនបង្កើត Website ជាមួយ ASP.NET Core និងវិធីដាក់ឱ្យគេប្រើ (Deployment)។</p>
+
+        <h4 class="dropdown-header" onclick="toggleDropdown(this)">
+          Overview <span class="dropdown-arrow">&#9660;</span>
+        </h4>
+
+        <div class="dropdown-content" style="display: none;">
+          <ul>
+            <li><a href="csharp/module4/aspnet.html">៤.១ ASP.NET Core (ហាងបាយ)</a></li>
+            <li><a href="csharp/module4/api.html">៤.២ API & REST (អ្នករត់តុ)</a></li>
+            <li><a href="csharp/module4/deployment.html">៤.៣ Deployment (បើកហាង)</a></li>
+            <li><a href="csharp/module4/capstone.html" style="font-weight:bold; color:#1abc9c;">៤.៤ គម្រោង៖ Personal
+                Portfolio</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module 5: Advanced C# & Best Practices -->
+      <div class="module-card reveal">
+        <h3>Module 5: Advanced C# & Best Practices (បច្ចេកទេសកម្រិតខ្ពស់)</h3>
+        <div class="module-meta">6 Units • Khmer Localized</div>
+        <p>សិក្សាអំពីបច្ចេកទេសកម្រិតខ្ពស់ក្នុង C# ដូចជា Exception Handling, File I/O, និង Unit Testing។</p>
+
+        <h4 class="dropdown-header" onclick="toggleDropdown(this)">
+          Overview <span class="dropdown-arrow">&#9660;</span>
+        </h4>
+
+        <div class="dropdown-content" style="display: none;">
+          <ul>
+            <li><a href="csharp/module5/exceptions.html">៥.១ Exception Handling (ការដោះស្រាយបញ្ហា)</a></li>
+            <li><a href="csharp/module5/fileio.html">៥.២ File I/O (ការអាន និងសរសេរឯកសារ)</a></li>
+            <li><a href="csharp/module5/delegates.html">៥.៣ Delegates (អ្នកតំណាង)</a></li>
+            <li><a href="csharp/module5/lambdas.html">៥.៤ Lambda Expressions (=>)</a></li>
+            <li><a href="csharp/module5/reflection.html">៥.៥ Reflection (ឆ្លុះបញ្ចាំង)</a></li>
+            <li><a href="csharp/module5/testing.html">៥.៦ Unit Testing (ការធ្វើតេស្ត)</a></li>
+          </ul>
+        </div>
+      </div>
     </section>
-  </section>  
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Web3 IT Dev. All Rights Reserved.</p>
-  </footer>
-  
-  <script src="script.js"></script>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal"
+      style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+      <h3 id="modal-title" style="margin-top:0;">Login</h3>
+      <div style="margin-bottom:15px;">
+        <label style="display:block; margin-bottom:5px;">Email</label>
+        <input type="email" id="auth-email" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block; margin-bottom:5px;">Password</label>
+        <input type="password" id="auth-password"
+          style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+          style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+        <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+          style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+      </div>
+      <button onclick="document.getElementById('auth-modal').style.display='none'"
+        style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Web3 IT Dev. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

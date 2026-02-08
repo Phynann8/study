@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ២: Loops (ការធ្វើឡើងវិញ)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li id="auth-nav-container"></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ២: Loops (ការធ្វើឡើងវិញ) - វដ្តជីវិតស្រែ</h1>
+
+            <p>តើកសិករធ្វើអ្វីខ្លះជារៀងរាល់ឆ្នាំ? គាត់ធ្វើស្រែមានរដូវកាលច្បាស់លាស់៖</p>
+
+            <ol>
+                <li>ភ្ជួរស្រែ</li>
+                <li>សាបព្រោះ</li>
+                <li>ច្រូតកាត់</li>
+                <li><strong>(ធ្វើម្ដងទៀតនៅឆ្នាំក្រោយ)</strong></li>
+            </ol>
+
+            <p>នៅក្នុងកូដ កាលណាយើងចង់ធ្វើអ្វីមួយម្ដងទៀតច្រើនដង យើងប្រើ <strong>Loops</strong> ដើម្បីកុំឱ្យសរសេរកូដដដែលៗ
+                ច្រើនដង។</p>
+
+            <hr>
+
+            <h2>For Loop (ការធ្វើឡើងវិញមានកំណត់)</h2>
+            <pre><code>
+for (int i = 0; i < 5; i++) 
+{
+    Console.WriteLine("ភ្ជួរស្រែលើកទី: " + i);
+}
+      </code></pre>
+
+            <p><strong>ការពន្យល់:</strong></p>
+            <ul>
+                <li><code>int i = 0</code>: ចាប់ផ្តើមពី ០ ។</li>
+                <li><code>i < 5</code>: ធ្វើរហូតដល់តិចជាង ៥ ដង (បានន័យថា ៥ ដង) ។</li>
+                <li><code>i++</code>: រាល់ពេលធ្វើចប់ម្ដង រាប់ថែម ១ ។</li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #e8f4fc; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                <h3>លំហាត់អនុវត្តន៍</h3>
+                <p>បើអ្នកចង់ដើរ ៣ ជុំ តើអ្នកដាក់លេខប៉ុន្មានកន្លែង <code>i < ?</code></p>
+                <button onclick="alert('ខុសហើយ! បើដាក់ 10 គឺដើរ ១០ ជុំ។')" style="margin-right:10px;">10</button>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! 3 គឺដើរ ៣ ជុំ។ +10 XP')">3</button>
+            </div>
+
+        </div>
+
+        <!-- Authentication Modal -->
+        <div id="auth-modal"
+            style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+            <h3 id="modal-title" style="margin-top:0;">Login</h3>
+            <div style="margin-bottom:15px;">
+                <label style="display:block; margin-bottom:5px;">Email</label>
+                <input type="email" id="auth-email"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="margin-bottom:20px;">
+                <label style="display:block; margin-bottom:5px;">Password</label>
+                <input type="password" id="auth-password"
+                    style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+                    style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+                <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+                    style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+            </div>
+            <button onclick="document.getElementById('auth-modal').style.display='none'"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-container"></div>
+
+        <!-- Navigation (Hidden initially) -->
+        <div class="lesson-nav" style="display:none;">
+            <a href="variables.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-client.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../script.js"></script>
+    <script src="../../js/quiz.js"></script>
+    <script>
+        const quizConfig = {
+            lessonId: 'loops',
+            nextLessonUrl: 'logic.html',
+            questions: [
+                {
+                    question: "តើកូដមួយណាដែលធ្វើការងារចំនួន 5 ដង?",
+                    options: ["for(int i=0; i<5; i++)", "for(int i=0; i<=5; i++)", "for(int i=1; i<5; i++)", "for(int i=5; i>0; i--)"],
+                    correct: 0
+                },
+                {
+                    question: "តើ `i++` មានន័យថាម៉េច?",
+                    options: ["បន្ថយតម្លៃ i ចំនួន 1", "គុណតម្លៃ i នឹង 2", "បន្ថែមតម្លៃ i ចំនួន 1", "មិនធ្វើអ្វីទាំងអស់"],
+                    correct: 2
+                },
+                {
+                    question: "ហេតុអ្វីបានជាយើងប្រើ Loop?",
+                    options: ["បន្ថយល្បឿនកុំព្យូទ័រ", "ដើម្បីកុំឱ្យសរសេរកូដដដែលៗច្រើនដង", "ដើម្បីឱ្យកុំព្យូទ័រដើរយឺត", "ដើម្បីបង្កើត Variable"],
+                    correct: 1
+                }
+            ]
+        };
+        document.addEventListener('DOMContentLoaded', () => new QuizEngine(quizConfig));
+    </script>
+</body>
+
+</html>

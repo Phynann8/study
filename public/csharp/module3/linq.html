@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3.1: LINQ - Khmer Code</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+                              <ul class="nav-links">
+        <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+      </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card reveal">
+            <h1>មេរៀនទី ៣.១៖ LINQ (ការចម្រាញ់ផលស្រូវ) 🌾</h1>
+            <p><strong>LINQ (Language Integrated Query)</strong> គឺជាបច្ចេកវិទ្យាដ៏អស្ចារ្យក្នុង C# ដែលអនុញ្ញាតឱ្យយើង
+                "សួរ" ឬ "ចម្រាញ់" ទិន្នន័យពីបញ្ជី (List/Array) បានយ៉ាងងាយស្រួល ដូចការរើសអង្ករល្អចេញពីអង្ករអន់អញ្ចឹង!</p>
+            <hr>
+
+            <h3>🌾 ឧទាហរណ៍៖ ការចម្រាញ់ផលស្រូវ</h3>
+            <p>ស្រមៃថាអ្នកមានអង្ករច្រើនបាវ (List of Rice Bags)។ អ្នកចង់រកតែបាវណាដែលមានទម្ងន់លើសពី ៥០គីឡូ
+                ហើយរៀបតាមលំដាប់ពីធ្ងន់ទៅស្រាល។</p>
+
+            <div class="interactive-demo" style="background: #fdf6e3; border-left: 8px solid #b58900;">
+                <h4>💻 កូដ LINQ (ស្ទីលទំនើប)</h4>
+                <pre style="background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 8px; overflow-x: auto;">
+List&lt;RiceBag&gt; myHarvest = GetAllRice();
+
+// ប្រើ LINQ ដើម្បីចម្រាញ់
+var goodRice = myHarvest
+    .Where(r => r.Weight > 50)      // រកតែបាវលើសពី ៥០គីឡូ
+    .OrderByDescending(r => r.Weight) // រៀបពីធ្ងន់ទៅស្រាល
+    .ToList();</pre>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3>🔍 ពាក្យគន្លឹះសំខាន់ៗ៖</h3>
+                <ul>
+                    <li><strong>.Where()</strong>: ដូចជាការ "រែង" (Filter) - យកតែអ្វីដែលត្រូវនឹងលក្ខខណ្ឌ។</li>
+                    <li><strong>.OrderBy()</strong>: ការ "រៀបជួរ" (Sort) - តាមលំដាប់លំដោយ។</li>
+                    <li><strong>.Select()</strong>: ការ "ជ្រើសរើស" - យកតែផ្នែកខ្លះនៃទិន្នន័យ (ឧទាហរណ៍ យកតែតម្លៃ
+                        មិនយកឈ្មោះបាវ)។</li>
+                    <li><strong>.FirstOrDefault()</strong>: យក "អ្នកលើគេបង្អស់" ឬ "ទទេ" បើរកមិនឃើញ។</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card reveal">
+            <h3>📝 សាកល្បងចំណេះដឹង (Quiz)</h3>
+            <p>តើ Method មួយណាដែលយើងប្រើដើម្បី "ចម្រាញ់" (Filter) ទិន្នន័យក្នុង LINQ?</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <button onclick="checkAnswer(false)">A) .Sort()</button>
+                <button onclick="checkAnswer(true)">B) .Where()</button>
+                <button onclick="checkAnswer(false)">C) .Select()</button>
+            </div>
+            <p id="feedback" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+
+        <div class="lesson-nav">
+            <button class="btn prev-btn">⬅ ត្រឡប់ក្រោយ</button>
+            <button class="btn next-btn" data-next="async.html">មេរៀនបន្ទាប់ ➡</button>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+    <script>
+        function checkAnswer(isCorrect) {
+            const feedback = document.getElementById('feedback');
+            if (isCorrect) {
+                feedback.innerText = "✅ ត្រឹមត្រូវ! .Where() ប្រើសម្រាប់ចម្រាញ់ទិន្នន័យ។ +50 XP";
+                feedback.style.color = "#2ecc71";
+                if (window.markLessonComplete) markLessonComplete('linq');
+            } else {
+                feedback.innerText = "❌ មិនទាន់ត្រឹមត្រូវទេ! សាកល្បងម្តងទៀត។";
+                feedback.style.color = "#e74c3c";
+            }
+        }
+    </script>
+</body>
+
+</html>
+

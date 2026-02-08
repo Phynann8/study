@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ៥: Reflection (ឆ្លុះបញ្ចាំង)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ៥: Reflection (ឆ្លុះបញ្ចាំង)</h1>
+
+            <p><strong>Reflection</strong> គឺសមត្ថភាពរបស់កូដក្នុងការ "មើលខ្លួនឯង" នៅពេលកំពុងដំណើរការ។
+                វាអាចឲ្យយើងពិនិត្យមើល Class, Method, ឬ Property ដោយមិនចាំបាច់ស្គាល់វាមុន។</p>
+
+            <p>វាក៏អនុញ្ញាតឲ្យយើងប្រើ <strong>Attributes</strong> (ស្លាកសញ្ញា) ដើម្បីផ្តល់ព័ត៌មានបន្ថែមដល់កូដ។</p>
+
+            <hr>
+
+            <h2>ឧទាហរណ៍: ការប្រើ Attributes</h2>
+            <pre><code>
+// បង្កើតស្លាកសញ្ញាផ្ទាល់ខ្លួន
+[Obsolete("កុំប្រើ Function នេះអី វាចាស់ហើយ!")]
+public void OldMethod() 
+{
+    Console.WriteLine("Old Code");
+}
+
+// នៅពេលអ្នកហៅ OldMethod() កម្មវិធីនឹងព្រមានអ្នក។
+      </code></pre>
+
+            <p><strong>ការប្រើប្រាស់ជាក់ស្តែង:</strong></p>
+            <ul>
+                <li>Testing Frameworks (ដូចជា NUnit, xUnit) ប្រើ Attribute <code>[Test]</code> ដើម្បីសម្គាល់ថា Function
+                    ណាជា Test។</li>
+                <li>Database (Entity Framework) ប្រើ <code>[Key]</code> ដើម្បីសម្គាល់ Primary Key។</li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #f9f9f9; padding: 20px; border-left: 5px solid #f39c12; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>តើ Attribute <code>[Obsolete]</code> មានន័យយ៉ាងដូចម្តេច?</p>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! វាមានន័យថាវាលែងត្រូវបានណែនាំឲ្យប្រើហើយ។ +10 XP')"
+                    style="margin-right:10px;">ហួសសម័យ</button>
+                <button onclick="alert('មិនត្រឹមត្រូវ! វាមិនមែនមានន័យថាខូចទេ គ្រាន់តែចាស់។')">ខូច</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="lambdas.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="testing.html" class="btn next-btn" onclick="markLessonComplete('reflection')">មេរៀនបន្ទាប់ (Unit
+                Testing) ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>

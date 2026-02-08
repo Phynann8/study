@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ២: File I/O (ការអាន និងសរសេរឯកសារ)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ២: File I/O (ការអាន និងសរសេរឯកសារ)</h1>
+
+            <p>កម្មវិធីភាគច្រើនត្រូវការរក្សាទុកទិន្នន័យ។ <strong>File I/O (Input/Output)</strong>
+                គឺជាការសរសេរទិន្នន័យចូលទៅក្នុងឯកសារ (Write) និងអានវាមកវិញ (Read)។</p>
+
+            <p>យើងប្រើ class <code>File</code> នៅក្នុង <code>System.IO</code>។</p>
+
+            <hr>
+
+            <h2>កូដគំរូ (Example)</h2>
+            <pre><code>
+using System.IO;
+
+// សរសេរអក្សរទៅក្នុងឯកសារ
+string writeText = "សួស្តី! នេះគឺជាការសាកល្បងសរសេរឯកសារ។";
+File.WriteAllText("filename.txt", writeText);
+
+// អានអក្សរពីឯកសារ
+string readText = File.ReadAllText("filename.txt");
+Console.WriteLine(readText);
+      </code></pre>
+
+            <p><strong>ចំណុចសំខាន់ៗ:</strong></p>
+            <ul>
+                <li><code>WriteAllText</code>: បង្កើតឯកសារថ្មី ឬសរសេរជាន់លើឯកសារចាស់។</li>
+                <li><code>AppendAllText</code>: សរសេរបន្ថែមពីក្រោម ដោយមិនលុបទិន្នន័យចាស់។</li>
+                <li><code>ReadAllText</code>: អានអក្សរទាំងអស់នៅក្នុងឯកសារ។</li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #f9f9f9; padding: 20px; border-left: 5px solid #3498db; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>តើ function មួយណាដែលយើងប្រើដើម្បីសរសេរបន្ថែមដោយមិនលុបរបស់ចាស់?</p>
+                <button onclick="alert('WriteAllText នឹងលុបរបស់ចាស់ចោល។')"
+                    style="margin-right:10px;">WriteAllText</button>
+                <button
+                    onclick="addXP(10); alert('ត្រឹមត្រូវ! AppendAllText សម្រាប់សរសេរបន្ថែម។ +10 XP')">AppendAllText</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="exceptions.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="delegates.html" class="btn next-btn" onclick="markLessonComplete('fileio')">មេរៀនបន្ទាប់
+                (Delegates) ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>

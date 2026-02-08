@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - Talent Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .market-header {
+            text-align: center;
+            padding: 50px 20px;
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .market-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .market-header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 180px;
+            background: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #bdc3c7;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .project-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+        }
+
+        .author-name {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #e8f4fc;
+            color: #3498db;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .hire-btn {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .hire-btn:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li id="auth-nav-container"></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+
+        <div class="market-header reveal">
+            <h1>Talent Marketplace 🚀</h1>
+            <p>Discover the next generation of Cambodian developers. Hire the best from our bootcamp.</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image" style="background:#ff9ff3;">🍚</div>
+                <div class="project-content">
+                    <div class="project-title">Smart Rice Farm</div>
+                    <div class="project-author">
+                        <div class="author-avatar">B</div>
+                        <span class="author-name">Bopha Chan</span>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">JS</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                    <p style="font-size: 0.9em; color: #666; margin-bottom: 15px;">
+                        An automated irrigation system simulation using loop logic learned in Module 1.
+                    </p>
+                    <button class="hire-btn" onclick="alert('Contacting Bopha... (Feature coming soon)')">Hire
+                        Bopha</button>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image" style="background:#54a0ff;">🧮</div>
+                <div class="project-content">
+                    <div class="project-title">Khmer Calculator</div>
+                    <div class="project-author">
+                        <div class="author-avatar">S</div>
+                        <span class="author-name">Sokha Lee</span>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">C#</span>
+                        <span class="tag">Forms</span>
+                    </div>
+                    <p style="font-size: 0.9em; color: #666; margin-bottom: 15px;">
+                        A fully functional calculator with Khmer numerals and voice support.
+                    </p>
+                    <button class="hire-btn" onclick="alert('Contacting Sokha...')">Hire Sokha</button>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image" style="background:#5f27cd; color:white;">🎮</div>
+                <div class="project-content">
+                    <div class="project-title">Angkor Adventure</div>
+                    <div class="project-author">
+                        <div class="author-avatar">V</div>
+                        <span class="author-name">Vireak Ma</span>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                    </div>
+                    <p style="font-size: 0.9em; color: #666; margin-bottom: 15px;">
+                        A 2D platformer game set in the Angkor Wat temple complex.
+                    </p>
+                    <button class="hire-btn" onclick="alert('Contacting Vireak...')">Hire Vireak</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Khmer Code. Connecting Talent to Opportunity.</p>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal"
+        style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:2000; width:90%; max-width:400px; color:#333;">
+        <h3 id="modal-title" style="margin-top:0;">Login</h3>
+        <div style="margin-bottom:15px;">
+            <label style="display:block; margin-bottom:5px;">Email</label>
+            <input type="email" id="auth-email"
+                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+        </div>
+        <div style="margin-bottom:20px;">
+            <label style="display:block; margin-bottom:5px;">Password</label>
+            <input type="password" id="auth-password"
+                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;">
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="btn"
+                style="background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Submit</button>
+            <a href="javascript:void(0)" onclick="toggleAuthMode()" id="modal-toggle-link"
+                style="font-size:0.9rem; color:#1abc9c;">Need an account? Sign Up</a>
+        </div>
+        <button onclick="document.getElementById('auth-modal').style.display='none'"
+            style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

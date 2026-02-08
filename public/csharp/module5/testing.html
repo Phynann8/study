@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ៦: Unit Testing</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ៦: Unit Testing (ការធ្វើតេស្ត)</h1>
+
+            <p><strong>Unit Testing</strong> គឺជាការសរសេរកូដ ដើម្បីតេស្តកូដរបស់អ្នកផ្សេងទៀត។
+                វាជួយធានាថាកម្មវិធីរបស់យើងដំណើរការត្រឹមត្រូវ និងមិនមានកំហុស (Bugs)។</p>
+
+            <p>នៅក្នុង C# យើងច្រើនប្រើ <strong>xUnit</strong>, <strong>NUnit</strong>, ឬ <strong>MSTest</strong>។</p>
+
+            <hr>
+
+            <h2>គោលការណ៍ AAA</h2>
+            <p>រាល់ការតេស្តគួរតែមាន 3 ជំហាន:</p>
+            <ul>
+                <li><strong>Arrange:</strong> រៀបចំទិន្នន័យ (ដូចជាបង្កើត Variable)។</li>
+                <li><strong>Act:</strong> ធ្វើសកម្មភាព (ហៅ Function ដែលចង់តេស្ត)។</li>
+                <li><strong>Assert:</strong> ផ្ទៀងផ្ទាត់លទ្ធផល (តើលទ្ធផលត្រឹមត្រូវឬអត់?)។</li>
+            </ul>
+
+            <h3>ឧទាហរណ៍:</h3>
+            <pre><code>
+[Test]
+public void TestAddition()
+{
+    // Arrange
+    int a = 5;
+    int b = 10;
+
+    // Act
+    int sum = a + b;
+
+    // Assert
+    Assert.AreEqual(15, sum);
+}
+      </code></pre>
+
+            <div class="interactive-demo"
+                style="background: #f9f9f9; padding: 20px; border-left: 5px solid #e67e22; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>តើជំហានណាមួយដែលយើងពិនិត្យមើលលទ្ធផល?</p>
+                <button onclick="alert('មិនត្រឹមត្រូវ! Arrange គឺរៀបចំ។')" style="margin-right:10px;">Arrange</button>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! Assert គឺផ្ទៀងផ្ទាត់លទ្ធផល។ +10 XP')">Assert</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="reflection.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="../../csharp-lesson.html" class="btn next-btn"
+                onclick="markLessonComplete('testing')">ត្រឡប់ទៅមេរៀនដើម ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>

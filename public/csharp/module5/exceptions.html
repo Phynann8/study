@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ១: Exception Handling (ការដោះស្រាយបញ្ហា)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+                <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+                <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+                <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+                <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+                <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+                <li>
+                    <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+                        style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cyberpunk">Cyber</option>
+                        <option value="royal">Royal</option>
+                    </select>
+                </li>
+                <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ១: Exception Handling (ការដោះស្រាយបញ្ហា)</h1>
+
+            <p>នៅក្នុងជីវិតពិត រឿងដែលមិនរំពឹងទុកតែងតែកើតឡើង ដូចជាការកំពប់ទឹក ឬបែកកែវ។ នៅក្នុងការសរសេរកូដក៏ដូចគ្នា យើងហៅបញ្ហាទាំងនេះថា <strong>Exceptions</strong>។</p>
+
+            <p>យើងប្រើ <code>try</code>, <code>catch</code>, និង <code>finally</code> ដើម្បីដោះស្រាយបញ្ហាទាំងនេះដោយមិនឲ្យកម្មវិធីគាំង។</p>
+
+            <hr>
+
+            <h2>របៀបប្រើប្រាស់ (Syntax)</h2>
+            <pre><code>
+try 
+{
+    // កូដដែលអាចមានបញ្ហា
+    int[] myNumbers = {1, 2, 3};
+    Console.WriteLine(myNumbers[10]); // កំហុស! ព្រោះគ្មានលេខទី 10
+}
+catch (Exception e)
+{
+    // ដោះស្រាយបញ្ហា
+    Console.WriteLine("មានបញ្ហាកើតឡើង: " + e.Message);
+}
+finally 
+{
+    // ធ្វើជានិច្ច ទោះមានរឿងអ្វីក៏ដោយ
+    Console.WriteLine("ចប់ការងារ។");
+}
+      </code></pre>
+
+            <p><strong>ការពន្យល់:</strong></p>
+            <ul>
+                <li><code>try</code>: សាកល្បងធ្វើអ្វីមួយ។</li>
+                <li><code>catch</code>: ចាប់យកបញ្ហាប្រសិនបើវាកើតឡើង។</li>
+                <li><code>finally</code>: អនុវត្តកូដចុងក្រោយជានិច្ច (ដូចជាការបិទទ្វារផ្ទះពេលចេញក្រៅ)។</li>
+            </ul>
+
+            <div class="interactive-demo"
+                style="background: #f9f9f9; padding: 20px; border-left: 5px solid #e74c3c; margin-top: 20px;">
+                <h3>សាកល្បងគិតមើល!</h3>
+                <p>តើកូដក្នុង <code>finally</code> ដំណើរការនៅពេលណា?</p>
+                <button onclick="alert('មិនត្រឹមត្រូវ! វាដំណើរការជានិច្ច។')" style="margin-right:10px;">តែពេលមានកំហុស</button>
+                <button onclick="addXP(10); alert('ត្រឹមត្រូវ! finally ដំណើរការជានិច្ច។ +10 XP')">ដំណើរការជានិច្ច</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="../../csharp-lesson.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="fileio.html" class="btn next-btn" onclick="markLessonComplete('exceptions')">មេរៀនបន្ទាប់ (File I/O) ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>

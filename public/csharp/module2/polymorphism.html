@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khmer Code - មេរៀនទី ២.៣: Polymorphism (ភាពច្រើនបែប)</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Frozen Header -->
+    <header class="header frozen-zone">
+        <nav class="navbar">
+            <div class="logo">Khmer Code</div>
+                              <ul class="nav-links">
+        <li><a href="../../index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="../../csharp-lesson.html" data-i18n="nav_lessons">Lessons</a></li>
+        <li><a href="../../playground.html" data-i18n="nav_playground">Playground</a></li>
+        <li><a href="../../leaderboard.html" data-i18n="nav_leaderboard">Leaderboard</a></li>
+        <li><a href="../../marketplace.html" data-i18n="nav_talent">Talent</a></li>
+        <li><a href="../../mentorship.html" data-i18n="nav_mentors">Mentors</a></li>
+        <li><span id="xp-display">Lvl 1 | XP: 0</span></li>
+        <li>
+          <select id="theme-select" onchange="changeTheme(event)" class="btn-lang"
+            style="background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; border-radius: 10px; padding: 2px 5px;">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cyberpunk">Cyber</option>
+            <option value="royal">Royal</option>
+          </select>
+        </li>
+        <li><button id="lang-toggle" class="btn-lang">ខ្មែរ</button></li>
+      </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="card module-card">
+            <h1>មេរៀនទី ២.៣: Polymorphism - ភាពច្រើនបែបនៃឧបករណ៍</h1>
+
+            <p><strong>Polymorphism</strong> មកពីពាក្យក្រិចដែលមានន័យថា <strong>"ទម្រង់ច្រើន"</strong> ។</p>
+
+            <p>ស្រមៃថាអ្នកមានពាក្យបញ្ជាមួយថា <strong>"បង់ប្រាក់"</strong> ។ អ្នកអាចបង់ជា៖</p>
+            <ul>
+                <li>លុយសុទ្ធ (Cash)</li>
+                <li>កាតធនាគារ (Card)</li>
+                <li>ស្កែន ABA (QR Code)</li>
+            </ul>
+            <p>ទោះបីវិធីផ្សេងគ្នា ប៉ុន្តែគោលដៅគឺតែមួយគឺ "បង់ប្រាក់"។</p>
+
+            <hr>
+
+            <h2>១. របៀបប្រើក្នុងកូដ (Method Overriding)</h2>
+            <p>យើងប្រើពាក្យ <code>virtual</code> សម្រាប់មេ និង <code>override</code> សម្រាប់កូន។</p>
+
+            <pre><code>
+class Payment 
+{
+    public virtual void Pay() { Console.WriteLine("កំពុងចាត់ចែង..."); }
+}
+
+class AbaPayment : Payment 
+{
+    public override void Pay() { Console.WriteLine("បង់តាម ABA ជោគជ័យ!"); }
+}
+            </code></pre>
+
+            <div class="interactive-demo"
+                style="background: #f4ecf7; padding: 20px; border-left: 5px solid #8e44ad; margin-top: 20px;">
+                <h3>ល្បែងសាកល្បង!</h3>
+                <p>បើលោកគ្រូបញ្ជាឱ្យសិស្សទាំងអស់ <strong>"សរសេរកូដ"</strong> តើសិស្សម្នាក់ៗត្រូវតែប្រើភាសាតែមួយមែនទេ?
+                </p>
+                <button onclick="alert('ខុសហើយ! សិស្សខ្លះសរសេរ C#, ខ្លះ Python តែលទ្ធផលគឺសរសេរកូដដូចគ្នា។')">មែន
+                    (Yes)</button>
+                <button
+                    onclick="addXP(20); alert('ត្រឹមត្រូវ! នេះហើយជា Polymorphism - បញ្ជាតែមួយ តែអនុវត្តតាមវិធីផ្សេងៗគ្នា។ +20 XP')">មិនមែនទេ
+                    (No)</button>
+            </div>
+
+        </div>
+
+        <div class="lesson-nav">
+            <a href="inheritance.html" class="btn prev-btn">ត្រឡប់ក្រោយ</a>
+            <a href="#" class="btn next-btn"
+                onclick="alert('មេរៀនបន្ទាប់ (Capstone Project) នឹងមកដល់ឆាប់ៗនេះ!'); markLessonComplete('polymorphism')">បញ្ចប់
+                Module 2 ></a>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>
+
